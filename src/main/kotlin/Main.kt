@@ -25,6 +25,7 @@ fun main(args: Array<String>) {
 
     println("Insert number of people")
     var count = readLine()!!.toInt()
+    if (!(count in (1..30))) throw Exception("Number of people should be from [1;30]")
     for (ind in 1..count)
         insertMan(table)
 

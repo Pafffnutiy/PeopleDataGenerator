@@ -1,5 +1,5 @@
 class FullName {
-    var firstName =
+    var firstName = ""
         set(value){
 
             if(isStringCorrect(value))
