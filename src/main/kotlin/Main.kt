@@ -1,5 +1,3 @@
-//package com.itextpdf
-
 import Man
 import com.itextpdf.kernel.font.PdfFont
 import com.itextpdf.kernel.font.PdfFontFactory
@@ -20,8 +18,8 @@ fun main(args: Array<String>) {
         pdf.addNewPage(PageSize.A4.rotate());
     val doc = Document(pdf)
 
+    //Creating a table
     var tableConf: FloatArray = configureTable(pdf)
-
     val table = Table(tableConf)
     createHead(table)
 
@@ -68,16 +66,14 @@ fun createHead(tab: Table) {
     )
 
     headField.forEach {
-        //var cell: Cell = Cell().add(it).setFont(font).setTextAlignment(TextAlignment.CENTER)
         tab.addCell(Cell().add(it).setFont(font).setTextAlignment(TextAlignment.CENTER))
     }
-    //for(elem in headField)
-    //  tab.addCell(Cell().add(elem).setFont(font).setTextAlignment(TextAlignment.CENTER))
 }
 
 fun insertMan(tab: Table) {
     var man = Man()
     man.createPersonalData()
+
     val manData = arrayOf(
         man.data.name.firstName, man.data.name.lastName, man.data.name.secondName,
         man.data.getAge().toString(), man.data.sex, man.data.birthRepresentation(man.data.birth),
@@ -87,9 +83,6 @@ fun insertMan(tab: Table) {
     )
 
     manData.forEach {
-        //var cell: Cell = Cell().add(it).setFont(font)
         tab.addCell(Cell().add(it).setFont(font))
     }
-    //for(val elem in manData)
-    //tab.addCell(Cell().add(elem).setFont(font))
 }

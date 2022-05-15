@@ -1,6 +1,7 @@
 class FullName {
-    var firstName = ""
+    var firstName =
         set(value){
+
             if(isStringCorrect(value))
                 field = value
         }
@@ -11,7 +12,7 @@ class FullName {
                 field = value
         }
 
-    var lastName = ""//if(isStringCorrect(_lastName)) _lastName else "Иванов"
+    var lastName = ""
     set(value){
         if(isStringCorrect(value))
             field = value

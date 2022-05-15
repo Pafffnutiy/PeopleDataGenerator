@@ -29,7 +29,7 @@ class PersonalData {
         when(month){
             in daysMonth30 -> day = (1..30).random()
             in daysMonth31 -> day = (1..31).random()
-            2 -> day = (1..28).random()
+            2 -> day = if(isLeapYear(year)) (1..29).random() else (1..28).random()
         }
 
         birth = LocalDate.of(year,month,day)
